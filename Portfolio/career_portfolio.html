@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Strategy & Operations Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #4a7c59;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            background: white;
+            color: #1a2f1a;
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+            animation: fadeInUp 0.8s;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #4a7c59;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 1s;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #666;
+            animation: fadeInUp 1.2s;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .profile-img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .about-text {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .about-text h3 {
+            color: #4a7c59;
+            margin-bottom: 1rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .project-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #4a7c59 0%, #6b9b7f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #e9ecef;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: #495057;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: #4a7c59;
+            margin-bottom: 1rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+
+        .contact {
+            background: white;
+            text-align: center;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #4a7c59 0%, #6b9b7f 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 500;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(74, 124, 89, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #1a2f1a;
+            color: white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Your Name</h1>
+            <p class="hero-subtitle">Strategy & Operations Leader</p>
+            <p class="hero-description">Retail Research & Product Innovation</p>
+        </div>
+    </div>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div>
+                <img src="https://via.placeholder.com/400x400/667eea/ffffff?text=Your+Photo" alt="Profile" class="profile-img">
+            </div>
+            <div class="about-text">
+                <h3>Strategy & Operations Professional</h3>
+                <p>I specialize in driving strategic initiatives and operational excellence in the retail research sector. With a focus on data-driven decision making and cross-functional collaboration, I help organizations optimize their processes and unlock new growth opportunities.</p>
+                
+                <p>Currently leading strategy and operations for a company at the intersection of retail research and product development, where I bridge the gap between market insights and actionable business outcomes.</p>
+                
+                <h3 style="margin-top: 2rem;">What I Do</h3>
+                <ul style="margin-left: 1.5rem;">
+                    <li>Strategic planning and roadmap development</li>
+                    <li>Operational process optimization</li>
+                    <li>Cross-functional team leadership</li>
+                    <li>Data analysis and business intelligence</li>
+                    <li>Product strategy and go-to-market planning</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Key Projects & Initiatives</h2>
+        <div class="project-grid">
+            <a href="project-operations.html" class="project-link">
+                <div class="project-card">
+                    <div class="project-img">Project Screenshot</div>
+                    <div class="project-content">
+                        <h3>Operations Optimization Initiative</h3>
+                        <p>Led a company-wide initiative to streamline operational processes, resulting in 30% efficiency gains and improved cross-team collaboration.</p>
+                        <div class="tags">
+                            <span class="tag">Process Improvement</span>
+                            <span class="tag">Change Management</span>
+                            <span class="tag">Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="project-product-launch.html" class="project-link">
+                <div class="project-card">
+                    <div class="project-img">Project Screenshot</div>
+                    <div class="project-content">
+                        <h3>Product Launch Strategy</h3>
+                        <p>Developed and executed go-to-market strategy for new retail research product, achieving 150% of year-one revenue targets.</p>
+                        <div class="tags">
+                            <span class="tag">Product Strategy</span>
+                            <span class="tag">Market Research</span>
+                            <span class="tag">GTM Planning</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="project-strategic-planning.html" class="project-link">
+                <div class="project-card">
+                    <div class="project-img">Project Screenshot</div>
+                    <div class="project-content">
+                        <h3>Strategic Planning Framework</h3>
+                        <p>Created comprehensive strategic planning framework adopted across the organization, improving alignment and decision-making velocity.</p>
+                        <div class="tags">
+                            <span class="tag">Strategic Planning</span>
+                            <span class="tag">Frameworks</span>
+                            <span class="tag">Leadership</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Strategic Capabilities</h3>
+                <ul>
+                    <li>Strategic Planning</li>
+                    <li>Business Development</li>
+                    <li>Market Analysis</li>
+                    <li>Competitive Intelligence</li>
+                    <li>Product Strategy</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Operational Excellence</h3>
+                <ul>
+                    <li>Process Optimization</li>
+                    <li>Project Management</li>
+                    <li>Change Management</li>
+                    <li>Performance Metrics</li>
+                    <li>Resource Planning</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Tools & Technologies</h3>
+                <ul>
+                    <li>Excel & Data Analysis</li>
+                    <li>SQL & Databases</li>
+                    <li>Tableau / Power BI</li>
+                    <li>Project Management Tools</li>
+                    <li>CRM Systems</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Leadership & Collaboration</h3>
+                <ul>
+                    <li>Cross-functional Leadership</li>
+                    <li>Stakeholder Management</li>
+                    <li>Executive Communication</li>
+                    <li>Team Development</li>
+                    <li>Vendor Management</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact">
+            <h2>Let's Connect</h2>
+            <p>I'm always interested in discussing strategy, operations, and opportunities to drive business impact.</p>
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com" class="contact-btn">Email Me</a>
+                <a href="https://linkedin.com/in/yourprofile" class="contact-btn">LinkedIn</a>
+                <a href="#" class="contact-btn">Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
